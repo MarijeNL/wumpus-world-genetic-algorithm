@@ -41,7 +41,7 @@ plt.legend()
 plt.show()
 ```
 
-Note that all these pieces of code are already presents in premade cells in the notebook.
+Note that all these pieces of code are already present in premade cells in the notebook.
 
 
 
