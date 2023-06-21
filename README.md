@@ -8,7 +8,13 @@ To create a board, one simply needs to set a few parameters and create the board
 ```size```: a tuple representing the size of the board\
 ```path```: an array representing the path of the Wumpus. It can also be set to ```None``` to induce random movement.
 
-The board can now be made with the command ```b = Board(size, holes, coins, path``` and visualized with
+Any Wumpus path can be used as the input for the model. If the path is shorter than the total steps performed by the agents, it will simply loop over the given path. 
+A couple of example paths are as follows:
+```[0,0,0,2,2,2]```: The Wumpus walks back and forth three steps. 
+```[4]```: The Wumpus does not move. 
+```[0,1,2,3]```: The Wumpus walks in a 2x2 circle. 
+
+The board can now be made with the command ```b = Board(size, holes, coins, path)``` and visualized with
 ```
 fig, ax = plt.subplots(1,1, figsize = (5,5))
 board_plot(b.board, ax)
