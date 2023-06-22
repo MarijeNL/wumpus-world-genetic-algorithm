@@ -22,7 +22,7 @@ plt.show()
 ```
 
 Now we only need to create a population:\
-In our experiments we used ```p = Population(b, 1000, 500, 0.01, False)```. This creates a population with 1000 agents that each have a path with a maximal length of 500. Mutations are performed with a 0.01 chance. ```False``` indicates that mutations can happen with said chance on every step of the path. If set to ```True```, mutations can only appear on a randomly selected step. We can then perform our evolutionary algorithms on this population by calling ```x, y = p.natural_selection(1000, False)```. This performs selection for 1000 iterations. ```False``` just means that it does not plot intermediary results.
+In our experiments we used ```p = Population(b, 1000, 500, 0.01, False)```. This creates a population with 1000 agents that each have a path with a maximal length of 500. Mutations are performed with a 0.01 chance. ```False``` indicates that mutations can happen with said chance on every step of the path. If set to ```True```, mutations can only appear on a randomly selected step. We can then perform our evolutionary algorithms on this population by calling ``` best_fitnesses, average_fitnesses, average_path_length = p.natural_selection(1000, False)```. This performs selection for 1000 iterations. ```False``` just means that it does not plot intermediary results.
 
 If one has installed ffmpeg (available via https://ffmpeg.org/) and provided the correct path to the .exe file in the first code block, one can create a video of the best agent moving through the Wumpus world with:
 ```
@@ -32,22 +32,15 @@ boards_to_animation(frames)
 
 To plot the final maximal fitness one can run the following code block:
 ```
-plt.show()
-plt.plot(range(len(y)), y, label = 'Max Fitness')
-
-plt.xlabel('Iterations')
-plt.ylabel('Fitness')
-plt.legend()
-
 plt.figure()
-plt.plot(range(len(z)), z, label = 'Average Fitness')
+plt.plot(range(len(best_fitnesses)), y, label = 'Max Fitness')
 plt.xlabel('Iterations')
 plt.ylabel('Fitness')
 plt.legend()
 plt.show()
 ```
 
-Note that all these pieces of code are already present in premade cells in the notebook.
+Alternatively you can run the ```experiment(size, holes, coins, path)``` function to automatically get all the graphs and videos. 
 
 
 
